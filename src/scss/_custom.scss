@@ -1,0 +1,11 @@
+// Here you can add other styles
+@media (min-width: 1400px) {
+    :root .container,
+    :root .container-sm,
+    :root .container-md,
+    :root .container-lg,
+    :root .container-xl,
+    :root .container-xxl {
+        max-width: 1500px;
+    }
+}

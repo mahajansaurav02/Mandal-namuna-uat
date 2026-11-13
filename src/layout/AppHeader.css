@@ -1,0 +1,309 @@
+/* ============ Root Variables ============ */
+:root {
+  --nav-bg-dark: #090c15;
+  --nav-gradient: linear-gradient(90deg, #0c1333 0%, #161244 50%, #1e1b4b 100%);
+  --nav-text-main: #ffffff;
+  --nav-text-muted: #dedee2;
+  --nav-purple: #8b5cf6;
+  --nav-purple-hover: #7c3aed;
+  --nav-purple-glow: rgba(139, 92, 246, 0.4);
+  --nav-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ============ Header Wrapper & Pattern ============ */
+.clarasight-header-wrapper {
+  background: var(--nav-bg-dark);
+  position: relative;
+  width: 100%;
+}
+
+
+/* Ensure the header stays on top of tables and content */
+.clarasight-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030 !important; /* High z-index to stay above everything */
+  width: 100%;
+}
+
+/* 
+  This spacer pushes the page content down so it doesn't hide 
+  behind the fixed navbar. 
+  Adjust '70px' to match the exact height of your navbar.
+*/
+.header-spacer {
+  height: 70px; 
+  width: 100%;
+  display: block;
+}
+
+/* Mobile adjustment if your mobile menu is taller */
+@media (max-width: 768px) {
+  .header-spacer {
+    height: 60px; /* Adjust based on your mobile header height */
+  }
+}
+.clarasight-header-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 8px 8px;
+  mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.clarasight-header {
+  background: var(--nav-gradient) !important;
+  border-bottom: 1px solid var(--nav-border) !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  z-index: 1050;
+  position: relative;
+}
+
+.clarasight-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--nav-purple-glow), transparent);
+}
+
+/* ============ Main Container Layout (THE FIX) ============ */
+.header-container {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important; /* Pushes the 3 sections apart */
+  width: 100% !important; 
+  max-width: 100% !important; /* Forces it to span the whole screen */
+  padding: 0 3rem !important; /* 3rem padding on left and right edges */
+  height: 72px;
+  position: relative;
+  z-index: 2;
+  margin: 0 !important;
+}
+
+/* 1. Left Section: Brand */
+.header-left {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important; /* Pushes logo to far left */
+  flex: 1 !important; 
+}
+
+/* 2. Center Section: Nav */
+.header-center {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important; /* Keeps nav perfectly centered */
+  flex: 2 !important; 
+}
+
+/* 3. Right Section: User Details */
+.header-right {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important; /* Pushes user details to far right */
+  flex: 1 !important; 
+  gap: 1.5rem;
+}
+
+/* ============ Brand ============ */
+.clarasight-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none !important;
+}
+
+.brand-logo-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #fff;
+  border-left-color: #fff;
+  transform: rotate(-45deg);
+  position: relative;
+}
+
+.brand-logo-icon .arc {
+  position: absolute;
+  top: -3px; left: -3px; right: -3px; bottom: -3px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--nav-purple);
+  transform: rotate(45deg);
+}
+
+.brand-text {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--nav-text-main);
+  letter-spacing: 0.5px;
+}
+
+/* ============ Desktop Nav ============ */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link-item,
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  color: var(--nav-text-muted) !important;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nav-link-item:hover,
+.nav-dropdown-toggle:hover,
+.nav-link-item.active,
+.nav-dropdown-toggle.active {
+  color: var(--nav-text-main) !important;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+  opacity: 0.6;
+}
+
+.chevron.rotate {
+  transform: rotate(180deg);
+}
+
+/* ============ Dropdown Menu ============ */
+.nav-dropdown {
+  position: relative;
+}
+
+.dark-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 280px;
+  background: #1e1b4b;
+  border: 1px solid var(--nav-border);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(139, 92, 246, 0.1);
+  padding: 0.5rem;
+  z-index: 1060;
+  animation: fadeInDown 0.2s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.dark-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: var(--nav-text-muted) !important;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.dark-dropdown-item:hover {
+  background: rgba(139, 92, 246, 0.15);
+  color: #fff !important;
+}
+
+.dark-dropdown-item.active {
+  background: var(--nav-purple);
+  color: #fff !important;
+}
+
+/* ============ User Profile Glowing Button ============ */
+.glowing-cta-wrapper .custom-user-toggle {
+  background: var(--nav-purple) !important;
+  border-radius: 50px !important;
+  padding: 0.6rem 1.5rem !important;
+  border: none !important;
+  box-shadow: 0 0 20px var(--nav-purple-glow) !important;
+  transition: all 0.2s ease !important;
+}
+
+.glowing-cta-wrapper .custom-user-toggle:hover {
+  background: var(--nav-purple-hover) !important;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.6) !important;
+  transform: translateY(-1px);
+}
+
+.glowing-cta-wrapper .user-name,
+.glowing-cta-wrapper .user-role {
+  color: #fff !important;
+}
+
+.glowing-cta-wrapper .user-avatar {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ============ Mobile ============ */
+.mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.mobile-menu-dark {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  background: #0c1333;
+  border-bottom: 1px solid var(--nav-border);
+  padding: 1rem;
+  z-index: 1040;
+}
+
+.mobile-nav-item {
+  display: block;
+  padding: 1rem;
+  color: var(--nav-text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.mobile-nav-item:hover {
+  color: #fff;
+}
+
+@media (max-width: 992px) {
+  .header-center { display: none !important; }
+  .lang-selector-wrap { display: none; }
+  .mobile-toggle { display: block; }
+  .header-container { padding: 0 1.5rem !important; }
+  .clarasight-header-wrapper::after { width: 150px; }
+  
+  .header-left { flex: 1 !important; }
+  .header-right { flex: 1 !important; }
+}

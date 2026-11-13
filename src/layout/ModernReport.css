@@ -1,0 +1,316 @@
+/* =========================================
+   MODERN REPORT DESIGN SYSTEM
+   Reusable for all report pages
+   ========================================= */
+
+/* --- Theme Variables (Matches Navbar) --- */
+:root {
+  --mr-primary: #7c3aed;
+  --mr-primary-hover: #6d28d9;
+  --mr-bg: #f8fafc;
+  --mr-card-bg: #ffffff;
+  --mr-text-main: #1e293b;
+  --mr-text-muted: #64748b;
+  --mr-border: #e2e8f0;
+  --mr-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.mr-container {
+  background-color: var(--mr-bg);
+  padding: 24px;
+  min-height: calc(100vh - 72px); /* Adjust based on navbar height */
+}
+
+/* --- Page Header --- */
+.mr-page-header {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.mr-page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--mr-text-main);
+  margin: 0;
+}
+
+/* --- Main Card --- */
+.mr-card {
+  background: var(--mr-card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--mr-border);
+  box-shadow: var(--mr-shadow);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.mr-card-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--mr-border);
+  background: #fdfdfd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mr-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--mr-text-main);
+  margin: 0;
+}
+
+.mr-card-body {
+  padding: 24px;
+}
+
+/* --- Filter Section --- */
+.mr-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  align-items: end;
+}
+
+.mr-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mr-form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--mr-text-muted);
+}
+
+/* Custom Select/Input styling (Replaces MUI) */
+.mr-input {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--mr-border);
+  border-radius: 8px;
+  background-color: #fff;
+  color: var(--mr-text-main);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.mr-input:focus {
+  outline: none;
+  border-color: var(--mr-primary);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.mr-input:disabled {
+  background-color: #f1f5f9;
+  color: var(--mr-text-muted);
+  cursor: not-allowed;
+}
+
+/* --- Action Buttons --- */
+.mr-btn-primary {
+  height: 42px;
+  padding: 0 20px;
+  background: var(--mr-primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mr-btn-primary:hover {
+  background: var(--mr-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* --- Info Banner (Officer Details) --- */
+.mr-info-banner {
+  background: linear-gradient(to right, #f3e8ff, #fae8ff);
+  border: 1px solid #e9d5ff;
+  border-left: 4px solid var(--mr-primary);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.mr-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mr-info-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--mr-text-muted);
+  font-weight: 600;
+}
+
+.mr-info-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--mr-text-main);
+}
+
+/* --- Modern Table --- */
+.mr-table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--mr-border);
+}
+
+.mr-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.mr-table th {
+  background: #f8fafc;
+  color: var(--mr-text-muted);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--mr-border);
+  white-space: nowrap;
+}
+
+.mr-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--mr-border);
+  color: var(--mr-text-main);
+  font-size: 0.95rem;
+}
+
+.mr-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.mr-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mr-container { padding: 16px; }
+  .mr-card-body { padding: 16px; }
+  .mr-info-banner { flex-direction: column; gap: 12px; }
+}
+
+.mr-table th, 
+.mr-table td {
+  white-space: nowrap; /* Prevents column text from breaking awkwardly on large tables */
+  font-size: 0.85rem;  /* Slightly smaller font for large data tables */
+}
+/* Add to bottom of ModernReport.css */
+.mr-table thead tr:nth-child(2) th {
+  background: #f1f5f9; /* Slightly darker gray for sub-headers */
+  font-size: 0.75rem;
+  padding: 10px 16px;
+  border-top: 1px solid var(--mr-border);
+}
+
+
+/* Add to bottom of ModernReport.css */
+
+/* --- Form Page Layout --- */
+.mr-form-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.mr-form-section {
+  background: var(--mr-card-bg);
+  border: 1px solid var(--mr-border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--mr-shadow);
+  margin-bottom: 24px;
+}
+
+.mr-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 Columns */
+  gap: 20px;
+}
+
+.mr-form-grid-full {
+  grid-column: 1 / -1; /* Spans across both columns */
+}
+
+/* --- Action Buttons Group --- */
+.mr-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--mr-border);
+}
+
+/* --- Button Variants --- */
+.mr-btn-secondary {
+  height: 42px;
+  padding: 0 20px;
+  background: #f1f5f9;
+  color: var(--mr-text-main);
+  border: 1px solid var(--mr-border);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mr-btn-secondary:hover {
+  background: #e2e8f0;
+}
+
+.mr-btn-danger {
+  height: 42px;
+  padding: 0 20px;
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mr-btn-danger:hover {
+  background: #fee2e2;
+}
+
+@media (max-width: 768px) {
+  .mr-form-grid {
+    grid-template-columns: 1fr; /* 1 Column on mobile */
+  }
+  .mr-form-actions {
+    flex-direction: column-reverse; /* Stack buttons on mobile */
+  }
+  .mr-form-actions button {
+    width: 100%;
+  }
+}

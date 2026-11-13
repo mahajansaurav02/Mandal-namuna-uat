@@ -1,0 +1,41 @@
+/* Toast base styles */
+.p-toast {
+  top: 70px !important;
+  z-index: 9999 !important;
+}
+
+/* Success toast */
+.p-toast-message-success {
+  background-color: #e6ffed !important;
+  border-left: 6px solid #28a745 !important;
+  color: #155724;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  padding: 16px !important;
+}
+
+/* Error toast */
+.p-toast-message-error {
+  background-color: #ffe0e6 !important;
+  border-left: 6px solid #dc3545 !important;
+  color: #721c24;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  padding: 16px !important;
+}
+
+/* Summary (title) */
+.p-toast-summary {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Detail (body text) */
+.p-toast-detail {
+  font-size: 0.95rem;
+}
+
+/* Optional: Toast close icon */
+.p-toast-icon-close {
+  color: inherit;
+}

@@ -1,0 +1,156 @@
+/* --- Top Navbar Toggle Styling --- */
+.custom-user-toggle {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  padding: 5px 10px;
+}
+
+.custom-user-toggle::after {
+  display: none; /* Hides default bootstrap caret */
+}
+
+.user-avatar {
+  background-color: #f0f4f8;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #321fdb; /* CoreUI primary blue */
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  text-align: left;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.2;
+}
+
+.user-role {
+  font-size: 11px;
+  color: #777;
+}
+
+.dropdown-caret {
+  width: 20px;
+  height: 20px;
+  color: #777;
+}
+
+/* --- Dropdown Menu Card Styling --- */
+.user-menu-card {
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  padding: 0 !important; /* Remove default padding */
+  overflow: hidden; /* Keeps header curved inside the card */
+  width: 320px !important;
+  margin-top: 10px !important;
+}
+
+/* Blue Header */
+.menu-header-blue {
+  background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); /* Gradient match */
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Profile Body */
+.menu-body-content {
+  padding: 25px 20px 15px 20px;
+  text-align: center;
+  background-color: white;
+}
+
+/* Large Avatar in Menu */
+.large-avatar-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.large-avatar {
+  background-color: #e6f2ff; /* Light blue background */
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #007bff; /* Darker blue icon */
+}
+
+/* Text Styling */
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.english-name {
+  font-family: 'Times New Roman', Times, serif; /* Matches the serif font in picture */
+  font-weight: 700;
+  color: #222;
+  font-size: 18px;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.marathi-name {
+  font-weight: 600;
+  color: #555;
+  font-size: 16px;
+  margin: 0;
+}
+
+.welcome-text {
+  color: #777;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+/* Divider Line */
+.menu-divider {
+  margin: 0;
+  border-top: 1px solid #eee;
+}
+
+/* Logout Button */
+.logout-wrapper {
+  padding: 15px 20px;
+  background-color: white;
+}
+
+.custom-logout-btn {
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e55353; /* Red color */
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.custom-logout-btn:hover {
+  opacity: 0.8;
+}
